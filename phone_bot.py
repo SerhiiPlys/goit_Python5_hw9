@@ -29,13 +29,15 @@ def dec_pars(func):
             if result[0] == "add":
                 a = result[1]
                 b = result[2]                # пробуем на исключение IndexError
+            if result[0] == "phone":
+                a = result[1]
             if result[0] == "change":
                 a = dict_numbers[result[1]]  # пробуем на исключение KeyError
         except KeyError:
                 print("Неизвестный контакт для замены номера")
                 result = ["error"] # модифицируем результат чтобы сработала команда ееррорhello
         except IndexError:
-                print("Неверный формат для добавления номера")
+                print("Неверный формат для добавления или показа номера")
                 result = ["error"] # модифицируем результат чтобы сработала команда ееррорhello
         return result
     return inner
